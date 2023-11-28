@@ -1,4 +1,4 @@
-# Azure SDK Sample8 Create Blob Upload Donwload File
+# Azure SDK Sample8: how to create an Azure Blob container and Upload/Donwload a file from/to your local hard drive disk
 
 https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet
 
