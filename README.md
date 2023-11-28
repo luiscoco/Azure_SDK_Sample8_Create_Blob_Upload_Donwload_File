@@ -17,10 +17,13 @@ https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-d
 ![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/799a62de-7a48-4bd9-9927-d7b57cbfb96d)
 
 
-### 3. Install **.NET 8 SDK** (download from https://dotnet.microsoft.com/en-us/download) and then we can access the **.NET CLI tools**
+### 3. Install **.NET 8 SDK** 
 
+Download from https://dotnet.microsoft.com/en-us/download) and then we can access the **.NET CLI tools**
 
-### 4. Open in VSCode a Terminal window and run the following command for creating the new .Net 8 C# console application: 
+### 4. Create a new .Net 8 C# console application
+
+Open in VSCode a Terminal window and run the following command for : 
 
 ```
 dotnet new console --framework net8.0
