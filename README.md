@@ -29,7 +29,7 @@ Open in VSCode a Terminal window and run the following command for :
 dotnet new console --framework net8.0
 ```
 
-### 5. Load the Azure SDK for .NET libraries: **https://www.nuget.org/packages**
+### 5. Load the libraries for Azure SDK for .NET: **https://www.nuget.org/packages**
 
 For loading the libraries in the application we run the commands:
 
@@ -46,10 +46,76 @@ dotnet restore
 
 And we check in the **csproj file** . the libraries were loaded in the application 
 
-### Sixth step, input the source code in the program.cs file. 
+### 6. Input the source code in the program.cs file
+
+```csharp
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Identity;
+
+// TODO: Replace <storage-account-name> with your actual storage account name
+string storageAccountName = "mynewstorageaccount1974";
+var blobServiceClient = new BlobServiceClient(
+        new Uri("https://" + storageAccountName + ".blob.core.windows.net"),
+        new DefaultAzureCredential());
+
+//Create a unique name for the container
+string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
+
+// Create the container and return a container client object
+BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
+
+// Create a local file in the ./data/ directory for uploading and downloading
+string localPath = "data";
+Directory.CreateDirectory(localPath);
+string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
+string localFilePath = Path.Combine(localPath, fileName);
+
+// Write text to the file
+await File.WriteAllTextAsync(localFilePath, "Hello, World!");
+
+// Get a reference to a blob
+BlobClient blobClient = containerClient.GetBlobClient(fileName);
+
+Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
+
+// Upload data from the local file
+await blobClient.UploadAsync(localFilePath, true);
+
+Console.WriteLine("Listing blobs...");
+
+// List all blobs in the container
+await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
+{
+    Console.WriteLine("\t" + blobItem.Name);
+}
+
+// Download the blob to a local file
+// Append the string "DOWNLOADED" before the .txt extension 
+// so you can compare the files in the data directory
+string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
+
+Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
+
+// Download the blob's contents and save it to a file
+await blobClient.DownloadToAsync(downloadFilePath);
+
+// Clean up
+Console.Write("Press any key to begin clean up");
+Console.ReadLine();
+
+Console.WriteLine("Deleting blob container...");
+await containerClient.DeleteAsync();
+
+Console.WriteLine("Deleting the local source and downloaded files...");
+File.Delete(localFilePath);
+File.Delete(downloadFilePath);
+
+Console.WriteLine("Done");
+```
 
 
-### Seventh step, build and run the application
+### 7. Build and run the application
 
 Type the command:
 
@@ -59,5 +125,3 @@ dotnet run
 
 ![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/dc198413-5427-40a4-86df-d44ed5a25729)
  
-
-## 3. 
