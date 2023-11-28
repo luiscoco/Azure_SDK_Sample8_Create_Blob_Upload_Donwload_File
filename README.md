@@ -121,3 +121,12 @@ Type the command:
 ```
 dotnet run
 ```
+
+![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/cdbdd37e-518f-490b-9d0c-e080a53cf848)
+
+![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/9d206959-c241-4c59-a615-56057bf611d1)
+
+![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/ca0b4e85-1acf-4a5d-adaa-842e9c057f59)
+
+![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/11a8bcbc-e3fb-407e-a574-e1f71dc766ab)
+
