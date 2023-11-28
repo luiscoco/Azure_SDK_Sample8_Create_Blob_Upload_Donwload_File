@@ -114,7 +114,6 @@ File.Delete(downloadFilePath);
 Console.WriteLine("Done");
 ```
 
-
 ### 7. Build and run the application
 
 Type the command:
@@ -122,6 +121,3 @@ Type the command:
 ```
 dotnet run
 ```
-
-![image](https://github.com/luiscoco/Azure_SDK_Sample8_Create_Blob_Upload_Donwload_File/assets/32194879/dc198413-5427-40a4-86df-d44ed5a25729)
- 
